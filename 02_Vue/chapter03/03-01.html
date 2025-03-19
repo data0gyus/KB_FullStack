@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 보간법 == v-text-->
+      <div>{{message}}</div>
+
+      <!-- v-text -->
+      <div v-text="message"></div>
+
+      <!-- v-html -->
+      <div v-html="message"></div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      // Model(데이터)
+      let model = { message: "<h2>Hello Vue3!</h2>" };
+
+      // View Model
+      // (Vue 인스턴스 == 애플리케이션 인스턴스 == 루트 컴포넌트 인스턴스)
+      let vm = Vue.createApp({
+        name: "App",
+        data() {
+          // 데이터 옵션 :
+          // - return 되는 객체의 데이터 변경 시 화면(view) 변경
+          // - proxy 객체가 제어
+          return model;
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

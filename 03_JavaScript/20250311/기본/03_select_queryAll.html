@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_title</title>
+<script>
+    window.onload = function () {
+        let header = document.querySelectorAll('h1');
+
+        for (let i=0; i<header.length; i++){
+            let a = header[i];
+
+            a.style.color = 'orange';
+            a.style.backgroundColor = 'red';
+            a.textContent = 'From JavaScript';
+        }
+    };
+</script>
+</head>
+
+<body>
+    <h1>Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+</body>
+</html>

@@ -1,0 +1,71 @@
+/* 반응 선택자 */
+h1:hover {
+    color: red;
+}
+
+h1:active {
+    color: blue;
+}
+
+/* 상태 선택자 */
+/* input 태그가 사용 가능할 때 */
+input:enabled {
+    background-color: white;
+}
+
+/* input 태그가 사용 불가능할 때 */
+input:disabled {
+    background-color: gray;
+}
+
+/* input 태그에 포커스를 맞출 때 */
+input:focus {
+    background-color: orange;
+}
+
+/* 체크박스가 체크되었을 때 */
+input:checked {
+    outline: 3px solid red;
+}
+
+/* 구조 선택자 */
+#test1 {
+    overflow: hidden;
+}
+
+#test1>li {
+    list-style: none;
+    float: left;
+    padding: 15px;
+}
+
+/* 첫 번째 자식 */
+#test1>li:first-child {
+    border-radius: 10px 0 0 10px;
+}
+
+/* 마지막 자식 */
+#test1>li:last-child {
+    border-radius: 0 10px 10px 0;
+}
+
+/* 짝수 자식 */
+#test1>li:nth-child(2n) {
+    background-color: #ff000388;
+}
+
+/* 홀수 자식 */
+#test1>li:nth-child(2n + 1) {
+    background-color: #455ba888;
+}
+
+/* 구조 선택자 사용 시 주의 사항 */
+/* 각 li 안의 첫 번째 a 모두 선택해서 빨간색으로 표시 */
+#test2>li>a:first-child {
+    color: red;
+}
+
+/* 첫 번째 li 요소 안의 a 태그만 빨간색으로 표시 */
+#test3>li:first-child>a {
+    color: red;
+}

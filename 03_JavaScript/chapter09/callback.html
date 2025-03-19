@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>callback</title>
+</head>
+<body>
+    <!-- JS는 body 제일 마지막에 작성하는 것을 권장 -->
+    <script>
+        function delayFn(ms, callback){
+            
+            // 매개변수 callback : 
+            // delayFn 함수 내에서 나중에 실행할 함수
+            console.log('delayFn() 함수 호출됨');
+            
+            setTimeout(callback, ms);
+        }
+
+        // 함수 호출
+        // 익명함수를 간단하게 표현하는 방법 () => {문장}
+        delayFn(3000,function(){
+            console.log("3초후 실행");
+        })
+    // 1번 함수가 delayFn 함수가 정의됨 
+    // 2번 함수 호출 -> 매개변수로 3000과 function() 함수가 callback으로 전달 
+    // 3번 console.log 실행
+    // 4번 setTimeout 실행 
+    </script>
+</body>
+</html>

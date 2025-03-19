@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_TITLE</title>
+</head>
+<body>
+    <script>
+        let array = [10,20,30,40,50];
+        
+        // 배열 선언
+        const arr = []
+        for(let i=0;i<5;i++){
+            arr.push((i+1)*10)
+        }
+        console.log(arr);
+
+        let output = 0; // 합계 누적 변수
+        // 초기값이 0인 이유 : 누적시 아무 영향 없는 숫자
+
+        // num : 배열 내 요소를 하나씩 꺼내서 저장하는 변수 
+        /*for( let num of num){
+            output += num;
+        }*/
+        for( let i=0; i<array.length;i++){
+            output += array[i];
+        }
+        alert(output);
+    </script>
+</body>
+</html>

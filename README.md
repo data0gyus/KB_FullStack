@@ -1,4 +1,4 @@
-#[KB] It's Your Life 6기 
+## [KB] It's Your Life 6기 
 
 HTML
 CSS

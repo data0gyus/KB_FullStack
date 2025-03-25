@@ -31,12 +31,22 @@
       .pointer {
         cursor: pointer;
       }
+
+      .completed {
+        color: green;
+        font-weight: bold;
+      }
+
+      .notCompleted {
+        color: red;
+        font-weight: bold;
+      }
     </style>
   </head>
   <body>
     <div id="app" class="container">
       <div class="card card-body bg-light">
-        <div classe="title">:: Todolist App</div>
+        <div class="title">🕒 TodoList App 💻</div>
       </div>
       <div class="card card-default card-borderless">
         <div class="card-body">
@@ -66,21 +76,21 @@
 
           <div class="row mb-3">
             <div class="col-md text-center">
-              전체 todo 개수 :
-              <span>{{todolist.length}}</span>
+              전체 todo 개수 : <span>{{todolist.length}}</span>
             </div>
-            <div class="clo-md text-center">
+            <div class="col-md text-center">
+              <!-- 완료 todo 개수 : <span :class="completedCount && completed">{{completedCount}}</span> -->
               완료 todo 개수 :
-              <span :class="{'completed' : (completedCount > 0 )}">
-                {{completedCount}}</span
+              <span :class="{'completed' : (completedCount > 0)}"
+                >{{completedCount}}</span
               >
-              <div class="col-md text-center">
-                미완료 todo 개수 :
-                <span
-                  :class="{'notCompleted' : (todolist.length - completedCount > 0)}"
-                  >{{todolist.length - completedCount}}</span
-                >
-              </div>
+            </div>
+            <div class="col-md text-center">
+              미완료 todo 개수 :
+              <span
+                :class="{'notCompleted' : (todolist.length - completedCount > 0)}"
+                >{{todolist.length - completedCount}}</span
+              >
             </div>
           </div>
 

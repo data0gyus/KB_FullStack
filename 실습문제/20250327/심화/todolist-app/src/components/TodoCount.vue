@@ -20,6 +20,7 @@
 </template>
 <script setup>
 import { computed } from "vue";
+
 const props = defineProps({ todoList: { type: Array, required: true } });
 const emit = defineEmits(["completed-count"]);
 // 부모로 부터 데이터 전달 받기 + 유효성 검사

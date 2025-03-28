@@ -20,7 +20,12 @@
         </li>
 
         <li class="nav-item">
-          <router-link class="nav-link" to="/videos">영상</router-link>
+          <router-link class="nav-link" v-bind:to="{ name: 'vi' }"
+            >영상</router-link
+          >
+        </li>
+        <li class="nav-item">
+          <RouterLink class="nav-link" to="/test">테스트</RouterLink>
         </li>
       </ul>
     </div>

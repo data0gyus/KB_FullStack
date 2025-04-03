@@ -48,7 +48,7 @@ const router = createRouter({
       component: () => import("../pages/EditTodo.vue"),
     },
 
-    /* 404 not found 페이지 */
+    /* 404 not found 페이지 ->  꼭 마지막에 작성되어 있어야 함 */
     {
       path: "/:paths(.*)*",
       name: "notFound",

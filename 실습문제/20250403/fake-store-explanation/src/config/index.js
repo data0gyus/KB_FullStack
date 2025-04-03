@@ -24,7 +24,7 @@ export default {
     },
     {
       title: "여성의류",
-      url: "/womenclothing",
+      url: "/womensclothing",
       icon: "fa-solid fa-person-dress",
     },
   ],

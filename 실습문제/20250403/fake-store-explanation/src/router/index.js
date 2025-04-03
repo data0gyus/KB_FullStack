@@ -22,13 +22,28 @@ const router = createRouter({
     },
     {
       path: "/mensclothing",
-      name: "mensclothing",
+      name: "men's clothing",
       component: () => import("../pages/MensClothingPage.vue"),
     },
     {
-      path: "/womenclothing",
-      name: "womenclothing",
+      path: "/womensclothing",
+      name: "women's clothing",
       component: () => import("../pages/WomensClothingPage.vue"),
+    },
+    {
+      path: "/product/:id",
+      name: "product/id",
+      component: ProductDetailPage,
+    },
+    {
+      path: "/product/write",
+      name: "/product/write",
+      component: ProductWritePage,
+    },
+    {
+      path: "product/edit:id",
+      name: "product/edit",
+      component: ProductEditPage,
     },
   ],
 });

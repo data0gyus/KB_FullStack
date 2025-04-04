@@ -3,14 +3,22 @@ import { reactive, computed } from "vue";
 import axios from "axios";
 
 export const useTodoListStore = defineStore("todoList", () => {
+  // state 담당
   // axios 요청 주소
   const BASEURI = "/api/todos";
 
   // 상태 변수를 reactive로 선언하여 반응형으로 만듦
   const states = reactive({ todoList: [], isLoading: false });
+  // getter
+  const todoList = computed(() => states.todoList);
+  const isLoading = computed(() => states.isLoading);
 
+  const doneCount = computed(() => {
+    return states.todoList.filter((todo) => todo.done === true).length;
+  });
+
+  // actions
   /********* axios 요청 처리 함수 *********/
-
   /**
    * TodoList 목록을 서버에서 가져오는 함수
    * @returns {Promise<void>}
@@ -124,22 +132,15 @@ export const useTodoListStore = defineStore("todoList", () => {
       states.isLoading = false;
     }
   };
-  const todoList = computed(() => states.todoList);
-  const isLoading = computed(() => states.isLoading);
-  const doneCount = computed(() => {
-    const filtered = states.todoList.filter(
-      (todoItem) => todoItem.done === true
-    );
-    return filtered.length;
-  });
+
   return {
     todoList,
     isLoading,
     doneCount,
     fetchTodoList,
     addTodo,
-    deleteTodo,
     updateTodo,
+    deleteTodo,
     toggleDone,
   };
 });

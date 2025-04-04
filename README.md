@@ -1,3 +1,5 @@
-# KB it's Your Life 6기 
+# KB it's Your Life 6기
 
-02_Vue 파트 
+프런트 엔드 수업
+02_Vue 파트
+일정 : 2025_03_03 ~ 2025_04_04

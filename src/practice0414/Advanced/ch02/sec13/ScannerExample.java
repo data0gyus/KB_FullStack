@@ -1,4 +1,4 @@
-package practice0414.advanced.ch02.sec13;
+package practice0414.Advanced.ch02.sec13;
 
 import java.util.Scanner;
 
@@ -12,8 +12,8 @@ public class ScannerExample {
         System.out.print("y값 입력:");
         int y = scanner.nextInt();
 
-        int reuslt = x + y;
-        System.out.println("x+y : "+reuslt);
+        int result = x + y;
+        System.out.println("x+y : "+result);
 
         while (true) {
             System.out.print("입력 문자열 :");

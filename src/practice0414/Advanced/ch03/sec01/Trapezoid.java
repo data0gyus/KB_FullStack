@@ -1,4 +1,4 @@
-package practice0414.advanced.ch03.sec01;
+package practice0414.Advanced.ch03.sec01;
 
 public class Trapezoid {
     public static void main(String[] args) {

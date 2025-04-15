@@ -1,4 +1,4 @@
-package practice0414.advanced.ch02.sec12;
+package practice0414.Advanced.ch02.sec12;
 
 public class PrintfExample {
     public static void main(String[] args) {

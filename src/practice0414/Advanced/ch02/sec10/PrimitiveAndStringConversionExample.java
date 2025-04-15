@@ -1,4 +1,4 @@
-package practice0414.advanced.ch02.sec10;
+package practice0414.Advanced.ch02.sec10;
 
 public class PrimitiveAndStringConversionExample {
     public static void main(String[] args) {

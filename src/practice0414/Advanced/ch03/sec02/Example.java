@@ -1,4 +1,4 @@
-package practice0414.advanced.ch03.sec02;
+package practice0414.Advanced.ch03.sec02;
 
 public class Example {
     public static void main(String[] args) {

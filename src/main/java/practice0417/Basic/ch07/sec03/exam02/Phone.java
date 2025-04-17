@@ -1,4 +1,4 @@
-package ch07.sec03.exam02;
+package practice0417.Basic.ch07.sec03.exam02;
 
 public class Phone {
     // 필드 선언

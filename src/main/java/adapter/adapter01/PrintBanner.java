@@ -1,5 +1,6 @@
 package adapter.adapter01;
 
+
 public class PrintBanner extends Banner implements Print {
     // 상속은 코드 재사용
     // print는 사용자에게 보여주기 위함

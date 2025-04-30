@@ -1,4 +1,4 @@
-package ch15.sec06;
+package ch15.sec06.exam02;
 
 import java.util.LinkedList;
 import java.util.Queue;

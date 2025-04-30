@@ -1,4 +1,4 @@
-package ch15.sec06;
+package ch15.sec06.exam03;
 
 public class Message {
     public String command;

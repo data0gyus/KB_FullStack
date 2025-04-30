@@ -1,4 +1,4 @@
-package TIL.practice0430.Adbanced.sec05.exam03;
+package TIL.practice0430.Adbanced.exam03;
 
 public class Person implements Comparable<Person> {
     public String name;

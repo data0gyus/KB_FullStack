@@ -1,4 +1,4 @@
-package TIL.practice0430.Adbanced.sec05.exam04;
+package TIL.practice0430.Adbanced.exam04;
 
 import java.util.TreeSet;
 

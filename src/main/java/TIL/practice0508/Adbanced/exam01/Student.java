@@ -1,4 +1,4 @@
-package TIL.practice0508.Adbanced.sec06.exam01;
+package TIL.practice0508.Adbanced.exam01;
 
 public class Student {
     private String name;

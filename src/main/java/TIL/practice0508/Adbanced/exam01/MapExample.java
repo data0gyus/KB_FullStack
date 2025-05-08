@@ -1,4 +1,4 @@
-package TIL.practice0508.Adbanced.sec06.exam01;
+package TIL.practice0508.Adbanced.exam01;
 
 import java.util.ArrayList;
 import java.util.List;

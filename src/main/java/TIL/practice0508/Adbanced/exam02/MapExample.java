@@ -1,4 +1,4 @@
-package TIL.practice0508.Adbanced.sec06.exam02;
+package TIL.practice0508.Adbanced.exam02;
 
 import java.util.Arrays;
 import java.util.stream.IntStream;

@@ -3,11 +3,14 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/수업자료/04_SQL고급.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/수업자료/08_테이블.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/실습과제/20250514/기본/03_SQL기본.sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/실습과제/20250514/심화/03_SQL기본(심화).sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/실습과제/20250515/기본/SQL고급(기본).sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/실습과제/20250515/심화/SQL고급(심화).sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/실습과제/20250519/기본/테이블(기본).sql" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/실습과제/20250519/심화/테이블(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/수업자료/09_인덱스.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250514/03_SQL기본(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250514/03_SQL기본.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250515/SQL고급(기본).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250515/SQL고급(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250519/테이블(기본).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250519/테이블(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250520/인덱스(기본).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250520/인덱스(심화).sql" dialect="MySQL" />
   </component>
 </project>

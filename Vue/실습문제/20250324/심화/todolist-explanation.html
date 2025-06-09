@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>TodoList</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+      .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20pt;
+      }
+      .todo-done {
+        text-decoration: line-through;
+      }
+      .container {
+        padding: 10px;
+      }
+      .panel-borderless {
+        border: 0;
+        box-shadow: none;
+      }
+      .pointer {
+        cursor: pointer;
+      }
+
+      .completed {
+        color: green;
+        font-weight: bold;
+      }
+
+      .notCompleted {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" class="container">
+      <div class="card card-body bg-light">
+        <div class="title">🕒 TodoList App 💻</div>
+      </div>
+      <div class="card card-default card-borderless">
+        <div class="card-body">
+          <!-- 새 할 일 추가-->
+          <div class="card-body">
+            <div class="row mb-3">
+              <div class="col">
+                <div class="input-group">
+                  <input
+                    id="msg"
+                    name="msg"
+                    type="text"
+                    class="form-control"
+                    placeholder="할일을 여기에 입력!"
+                    v-model.trim="todo"
+                    @keyup.enter="addTodo"
+                  />
+                  <span
+                    class="btn btn-primary input-group-addon"
+                    @click="addTodo"
+                    >추가</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col-md text-center">
+              전체 todo 개수 : <span>{{todolist.length}}</span>
+            </div>
+            <div class="col-md text-center">
+              <!-- 완료 todo 개수 : <span :class="completedCount && completed">{{completedCount}}</span> -->
+              완료 todo 개수 :
+              <span :class="{'completed' : (completedCount > 0)}"
+                >{{completedCount}}</span
+              >
+            </div>
+            <div class="col-md text-center">
+              미완료 todo 개수 :
+              <span
+                :class="{'notCompleted' : (todolist.length - completedCount > 0)}"
+                >{{todolist.length - completedCount}}</span
+              >
+            </div>
+          </div>
+
+          <!-- 할 일 목록-->
+          <div class="row">
+            <div class="col">
+              <ul class="list-group">
+                <li
+                  v-for="todoitem in todolist"
+                  :key="todoitem.id"
+                  class="list-group-item"
+                  :class="{'list-group-item-success' : todoitem.completed}"
+                >
+                  <input
+                    type="checkbox"
+                    class="pointer me-3"
+                    v-model="todoitem.completed"
+                    @click="toggleCompleted(todoitem.id)"
+                  />
+                  <!-- todoitem.completed 값이 true이면 'todo-done' 클래스, (완료) 문자열 추가  -->
+                  <span :class="{'todo-done': todoitem.completed}"
+                    >{{todoitem.todo}}{{todoitem.completed ? "(완료)":""}}</span
+                  >
+                  <!-- 삭제 버튼이 클릭된 경우 deleteTodo() 메서드 호출 // .stop : 이벤트 전파(하위요소-> 상위요소로 전달) 막기  -->
+                  <!-- stop이 없을 경우 deletetodo 실행 후 -> togglecompleted(todoitem.id) 호출이 되면서 오류 발생: li에서 @click 이 있을 때 -->
+                  <span
+                    class="float-end badge bg-secondary pointer"
+                    @click.stop="deleteTodo(todoitem.id)"
+                    >삭제</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script type="text/javacript"></script>
+    <script>
+      // let ts = new Date().getTime();
+      let ts = Date.now();
+
+      let vm = Vue.createApp({
+        name: "App",
+        data() {
+          return {
+            todo: "",
+            todolist: [
+              { id: ts, todo: "자전거 타기", completed: false },
+              { id: ts + 1, todo: "딸과 공원 산책", completed: true },
+              { id: ts + 2, todo: "일요일 애견 카페", completed: false },
+              { id: ts + 3, todo: "Vue 원고 집필", completed: false },
+            ],
+          };
+        },
+        computed: {
+          sortedTodos() {
+            this.todolist.sort((t1, t2) => {
+              // true > false -> 결과 : true
+              if (t1.completed > t2.completed) {
+                return 1; // 양수 반환 시 자리 바뀜 (t1, t2 -> t2, t1)
+              }
+              if (t1.completed < t2.completed) {
+                return -1; // 음수 반환 시 자리 바꿈 X
+              }
+
+              // 위 if문 실행 X === completed가 같을 경우
+              // -> 문자열 오름 차순 정렬
+
+              // 모두 소문자로 변경 (대소문자 구분 x)
+              const todo1 = t1.todo.toLowerCase();
+              const todo2 = t2.todo.toLowerCase();
+              if (todo1 > todo2) return 1;
+              else if (todo1 === todo2) return 0;
+              else return -1;
+            });
+            // 정렬된 todolist 반환
+            return this.todolist;
+          },
+          // 완료 개수 카운트
+          completedCount() {
+            // todolist의 요소 중 completed가 true인 요소만 남긴 배열 반환
+            return this.todolist.filter((todo) => todo.completed).length;
+          },
+        },
+        methods: {
+          addTodo() {
+            if (this.todo.length >= 2) {
+              this.todolist.push({
+                id: new Date().getTime(),
+                todo: this.todo,
+                completed: false,
+              });
+              this.todo = "";
+            }
+          },
+          // 할 일 삭제 메서드
+          deleteTodo(id) {
+            // 배열. findIndex(콜백함수) : 콜백 함수의 결과가 true인 index를 반환
+            let index = this.todolist.findIndex((item) => id === item.id);
+            this.todolist.splice(index, 1);
+          },
+          //  할일 완료 여부 변경 메서드
+          toggleCompleted(id) {
+            let index = this.todolist.findIndex((item) => id === item.id);
+            this.todolist[index].completed = !this.todolist[index].completed;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

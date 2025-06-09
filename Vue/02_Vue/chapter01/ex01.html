@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id ='app'>
+        <h2>{{message}}</h2>
+    </div> 
+    <!-- 이부분은 Vue로 작용하겠다.
+        Vue 일부분, HTML 일부분으로 화면 구성도 가능하나 그렇게는 잘 사용 안함 
+      -->
+
+      <script src="https://unpkg.com/vue"></script> <!-- CDN : Content Delivery Network -->
+      <script>
+            let model = {message : "Hello Vue3!"}; // 순수 모델
+            let vm = Vue.createApp({ // 넓은 의미로 : ViewModel -> 설정 객체 
+                name: "App",
+                data() {            // 좁은 의미로 : data 파트 
+                    return model;
+                } // (가장 중요!!!)
+            }).mount('#app'); //초기화 과정에서 항상 등장 
+      </script>
+</body>
+</html>

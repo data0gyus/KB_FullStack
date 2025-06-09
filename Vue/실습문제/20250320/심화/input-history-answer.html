@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <!-- textarea에 입력한 내용을 오른쪽 히스토리에 출력 -->
+    <div id="app">
+      <h3>입력</h3>
+      <textarea
+        v-model="message"
+        placeholder="내용을 입력하세요"
+        @keyup.exact.enter="addItem"
+      ></textarea>
+      <p>다음 줄 : Shift + Enter</p>
+      <p>입력 완료 : Enter</p>
+
+      <div>
+        <h3>history</h3>
+        <ul>
+          <li v-for="(item,index) in items" :key="item.id">
+            <span>{{item.content}}</span>
+            <button @click="removeItem(index)">삭제</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const vm = Vue.createApp({
+        name: "App",
+        data() {
+          return {
+            items: [], // 입력된 값이 누적될 배열
+            message: "", // textarea에 입력된 값이 저장될 속성
+          };
+        },
+        methods: {
+          addItem() {
+            // 입력된 값이 없다면 이벤트 핸들러 종료 (일찍 return)
+            if (this.message.trim() === "") {
+              this.message = "";
+              return;
+            }
+            // data의 items 배열 제일 앞에 요소 추가
+            // unshift : 제일 앞에 요소 추가
+            this.items.unshift({
+              id: Date.now(),
+              content: this.message.trim(),
+            });
+            this.message = "";
+          },
+
+          // data의 items에서 index번째 요소 제거
+          // -> data가 변했다 ->
+          removeItem(index) {
+            this.items.splice(index, 1);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

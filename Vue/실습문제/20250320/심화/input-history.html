@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue 입력창 및 히스토리</title>
+    <style>
+      .container {
+        width: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+      }
+      .input-area,
+      .history {
+        width: 48%;
+      }
+      .input-area textarea {
+        width: 100%;
+        height: 200px;
+        padding: 10px;
+        font-size: 16px;
+        resize: none;
+      }
+      .history ul {
+        list-style: none;
+        padding: 0;
+      }
+      .history li {
+        background: #f4f4f4;
+        margin: 5px 0;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .delete-btn {
+        background: red;
+        color: white;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+      pre {
+        white-space: pre-wrap; /* 줄바꿈을 유지하도록 설정 -> 엔터, 띄어쓰기, 탭 등 입력한 형태 그대로 유지 됨 */
+        word-wrap: break-word; /* 긴 단어가 끊어지도록 설정 */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div class="container">
+        <div class="input-area">
+          <h3>입력</h3>
+          <textarea
+            v-model="inputText"
+            @keydown.enter.exact="saveText"
+            @keydown.shift.enter.prevent="newLine"
+            placeholder="텍스트를 입력하세요... (Enter: 저장, Shift+Enter: 줄바꿈)"
+          ></textarea>
+        </div>
+        <div class="history">
+          <h3>입력 기록</h3>
+          <ul>
+            <li v-for="(item, index) in history" :key="index">
+              <pre>{{ item }}</pre>
+              <button class="delete-btn" @click="deleteText(index)">
+                삭제
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+      const vm = Vue.createApp({
+        name: "App",
+        data() {
+          return {
+            inputText: "",
+            history: [],
+          };
+        },
+        methods: {
+          saveText(event) {
+            event.preventDefault(); // 기본 동작 방지
+            if (this.inputText.trim()) {
+              this.history.push(this.inputText);
+              this.inputText = ""; // 입력창 초기화
+            }
+          },
+          newLine(event) {
+            event.preventDefault();
+            this.inputText += "\n"; // 줄바꿈 추가
+          },
+          deleteText(index) {
+            this.history.splice(index, 1);
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

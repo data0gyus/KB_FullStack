@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02_title</title>
+    
+</head>
+<body>
+    <form>
+        <div>
+            좋아하는 음식은?
+            <label>
+                <input type="checkbox" name="food" value="라면">
+                라면
+            </label>
+            <label>
+                <input type="checkbox" name="food" value="만두">
+                만두
+            </label>
+            <label>
+                <input type="checkbox" name="food" value="불고기">
+                불고기
+            </label>
+            <input id="btn" type="button" value="전송">
+        </div>
+    </form>
+    <script>
+         window.onload = function () {
+            let button = document.getElementById('btn');
+ 
+            button.onclick = function () {
+                let a = document.querySelectorAll('input');
+                let output = '';
+ 
+                for (let i=0; i<a.length; i++){
+                    let b = a[i];
+                    if (b.checked){
+                        output += b.value + ' ';
+                    }
+                }
+                console.log(output)
+            };
+            
+ 
+        }; 
+/*
+        const btn = document.querySelector('#btn'); // 전송 버튼
+
+        // #btn 요소가 'click' 된 것이 감지 되었을 때
+        btn.addEventListener('click', () => {
+            // 감지되는 시점에 checkbox 모두 얻어오기
+            // - CSS 기본 속성 선택자 :  [속성명=속성값]
+            const boxs = document.querySelectorAll('[name=food]');
+
+            const results = []; // 비어있는 배열 생성
+            // 체크된 checkbox의 value를 누적
+
+            // boxs에 저장된 요소 순회 탐색
+            for (let b of boxs) {
+                // 현재 접근한 checkbox(b)가 체크 되었는지 확인
+                // - 체크박스.checked : 체크된 상태면 true, 아니면 false 반환
+
+                if (b.checked === true) {
+                    // 체크된 checkbox의 value 속성 값을 results 배열에 추가
+                    results.push(b.value);
+                }
+            }
+
+            console.log('results : ', results);
+        });
+
+
+        const btn2 = document.querySelector('#btn'); // 전송 버튼
+
+            // #btn 요소가 'click' 된 것이 감지 되었을 때
+            btn.addEventListener('click', () => {
+                const results = []; // 비어있는 배열 생성
+
+                // :checked 상태 선택자 이용 
+                // -> check된 요소만 선택(if문 검사 필요 x)
+
+                const boxs = document.querySelectorAll('[name=food]:checked')
+
+                for(let b of boxs){
+                    results.push(b.value);
+                }
+
+                console.log('results : ', results);
+
+            });
+*/
+    </script>
+</body>
+</html>

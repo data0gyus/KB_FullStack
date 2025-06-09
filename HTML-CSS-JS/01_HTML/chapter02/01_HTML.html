@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic HTML5</title>
+</head>
+<body>
+    <form>
+        <!-- 사용자가 입력하는 입력 양식-->
+        <input type ="text" name="text" value="text"><br>
+        <input type="password" name="password" value="password"><br>
+        <input type="file" name="file" value="file"><br>
+        <input type="checkbox" name="checkbox" value="checkbox"><br>
+        <input type="radio" name="radio" value="radio"><br>
+
+        <!-- 보이지 않는 입력 방식-->
+        <input type="hidden" name="hidden" value="hidden"><br>
+
+        <!-- 버튼-->
+        
+        <input type="button" value="button"><br>
+        <button type="button">체크</button><br>
+        <!-- input 타입 버튼은 글자만 가능 / button 타입은 이미지도 넣을 수 있음 -->
+        <!-- button 타입은 디폴트가 submit으로 되어 있음 -->
+
+        <input type="reset" value="reset"><br>
+        <input type="submit" value="submit"><br>
+        <input type="image" src="https://placehold.co/300x300">
+    </form>
+</body>
+</html>
+
+<!-- checkbox와 radio를 누르지 않으면 전달 자체가 되지 않음 -->
+<!-- text와 password는 값이 없는 상태로 보냄 -->
+<!-- 엔터로 전송되지 않도록 막아야 함  -->

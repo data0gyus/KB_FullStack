@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_title</title>
+    <script>
+        window.onload = function() {
+
+            let button = document.getElementById('btn');
+
+            button.onclick = function (){
+                let name = document.getElementById('name').value;
+                console.log(name);
+            }
+        }
+
+        const btn = document.querySelector("#btn");
+        const input = document.querySelector("#name");
+
+        btn.addEventListener('click', () => {
+            // input에 작성된 값을 읽어와 console에 출력 
+            console.log(input.value);
+        });
+
+
+    </script>
+</head>
+<body>
+    <form>
+        <label for="name">이름 : </label>
+        <!-- input은 textContent(X), value(O) -->
+        <input id="name" name="name" type="text" size="30">
+        <input id="btn" type="button" value="전송">
+    </form>
+</body>
+</html>

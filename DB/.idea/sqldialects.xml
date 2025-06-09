@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/수업자료/04_SQL고급.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/수업자료/08_테이블.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/수업자료/09_인덱스.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250514/03_SQL기본(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250514/03_SQL기본.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250515/SQL고급(기본).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250515/SQL고급(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250519/테이블(기본).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250519/테이블(심화).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250520/인덱스(기본).sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/실습과제/20250520/인덱스(심화).sql" dialect="MySQL" />
+  </component>
+</project>
